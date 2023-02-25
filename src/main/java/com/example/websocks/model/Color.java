@@ -1,4 +1,10 @@
 package com.example.websocks.model;
+public enum Color {
 
-public interface Color {
+    BLACK,
+    RED,
+    WHITE,
+    YELLOW,
+    GREY
+
 }
