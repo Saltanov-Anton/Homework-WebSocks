@@ -18,9 +18,9 @@ public class SocksRepositoryImpl implements SocksRepository{
 
         if (socksMap.containsKey(socks)) {
             socksMap.put(socks, socksMap.get(socks) + socksBatch.getQuantity());
+        } else {
+            socksMap.put(socks, socksBatch.getQuantity());
         }
-
-        socksMap.put(socks, socksBatch.getQuantity());
     }
 
     @Override
@@ -30,7 +30,7 @@ public class SocksRepositoryImpl implements SocksRepository{
             int quantity = socksMap.get(socks);
 
             if (socksBatch.getQuantity() < quantity) {
-                socksMap.replace(socks, socksMap.get(socks) - socksBatch.getQuantity());
+                socksMap.replace(socks, quantity - socksBatch.getQuantity());
                 return socksBatch.getQuantity();
             } else {
                 socksMap.remove(socks);
